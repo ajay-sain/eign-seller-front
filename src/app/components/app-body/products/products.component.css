@@ -1,0 +1,242 @@
+.item-list {
+    margin: 5px 0px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    /* background-color: #8bb3e4; */
+}
+
+.product-list {
+    width: -webkit-fill-available;
+    border-collapse: collapse;
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+.product-list tbody {
+    color: #115190;
+    /* text-shadow: 1px 1px lightgray; */
+}
+
+.product-list tr {
+    height: 50px;
+}
+
+.product-list tr:hover {
+    box-shadow: inset 1px 1px 3px #000;
+}
+
+.product-list tr:nth-child(even) {
+    /* color: #1b1564; */
+    background: #f6f6f6;
+}
+
+.column-header {
+    padding: 10px;
+    background: transparent;
+}
+
+.product-image {
+    width: 50px;
+    max-height: 50px;
+}
+
+.table-header {
+    background-image: url("C:\Users\ajaysain\Desktop\abstract.jpg");
+}
+
+.table-row {
+    border-bottom: 1px silod gray;
+}
+
+.search-area {
+    text-align: right;
+}
+
+.seacrh-box {
+    display: inline-block;
+    /* border: 1px solid #115190; */
+    margin: auto 10px;
+    width: 250px;
+    margin: 0px;
+    margin-top: 5px;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    position: relative;
+}
+
+.seacrh-box i {
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    font-size: larger;
+}
+
+.seacrh-box input {
+    border: none;
+    color: #115190;
+    line-height: 0.5;
+    font-size: 15px;
+    display: block;
+    background: transparent;
+    height: 30px;
+    padding: 7px 20px 7px 40px;
+    margin: 0px;
+    width: 190px;
+    float: left;
+    line-height: 1.5;
+}
+
+.seacrh-box input::placeholder {
+    color: #115190;
+}
+
+.table-container {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.table-box {
+    border: 1px solid gray;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.button {
+    margin: 0 10px;
+    color: #0c3479;
+}
+
+.pagination {
+    display: inline;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.edit-button {
+    content: "\f044";
+    margin-right: 5px;
+}
+
+.edit-button svg {
+    height: 20px;
+    fill: #0c3479;
+    margin: 20px;
+    vertical-align: middle;
+}
+
+.delete svg {
+    fill: red;
+    margin-right: 0px;
+    margin-left: 5px;
+}
+
+.page-size {
+    display: inline-block;
+    border-bottom: 1px solid #115190;
+    margin: 10px;
+    width: 90px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+}
+
+.page-size input {
+    outline: none;
+    border: none;
+    color: #115190;
+    line-height: 0.5;
+    font-size: 15px;
+    display: block;
+    background: transparent;
+    height: 30px;
+    padding: 7px 20px;
+    margin: 0px;
+    width: 50px;
+    float: left;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+input::placeholder {
+    color: #115190;
+}
+
+.page-button {
+    border: none;
+    margin: 10px;
+    color: #0c3479;
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.isDisabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.table-config {
+    vertical-align: middle;
+    text-align: right;
+}
+
+.column-header svg {
+    height: 15px;
+    fill: #ffffff;
+    color: #ffffff;
+}
+
+.sumition-box {
+    width: 100%;
+    text-align: left;
+    background-color: #F1F1F1;
+}
+
+.sumition-box button {
+    border: none;
+    background-color: #115190;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 10PX 30px;
+}
+
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+}
+
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    border: 2px solid #555555;
+    border-radius: 3px;
+    background-color: white;
+}
+
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+.enable {
+    display: block;
+}

@@ -1,0 +1,93 @@
+<div class="item-list">
+    <!-- <div class="item-list" *ngFor="let i of itemList">
+        <app-item [item]=i></app-item>
+    </div> -->
+
+    <div class="table-container">
+        <div class="search-area">
+            <div class="seacrh-box">
+                <i><svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px"><path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/></svg></i>
+                <input type="text" name="search" id="search" placeholder="Search" (change)="searchProduct($event.target)">
+            </div>
+        </div>
+        <div class="table-box">
+            <table class="product-list">
+                <thead>
+                    <tr class="table-header table-row">
+                        <th class="column-header mini-column"></th>
+                        <th class="column-header">Seller Product code</th>
+                        <th class="column-header">Name</th>
+                        <th class="column-header">Categories</th>
+                        <th class="column-header mini-column">
+                            <a (click)="sortTable('mrp')">
+                                MRP
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 0 1792 1792"><path d="M1408 1088q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45zm0-384q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"></path></svg>
+                            </a>
+                        </th>
+                        <th class="column-header mini-column">
+                            <a (click)="sortTable('ssp')">
+                                SSP
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 0 1792 1792"><path d="M1408 1088q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45zm0-384q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"></path></svg>
+                            </a>
+                        </th>
+                        <th class="column-header mini-column">
+                            <a (click)="sortTable('ymp')">
+                                YMP
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 0 1792 1792"><path d="M1408 1088q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45zm0-384q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"></path></svg>
+                            </a>
+                        </th>
+                        <th class="column-header mini-column">Status</th>
+                        <th class="column-header mini-column">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data" class="table-row">
+                        <td class="column-body">
+                            <img src={{item.primaryUrl}} alt="Not Found" class="product-image">
+                        </td>
+                        <td class="column-body">{{item.sellerProductId}}</td>
+                        <td class="column-body">{{item.name}}</td>
+                        <td class="column-body">{{item.catagories}}</td>
+                        <td class="column-body">{{item.mrp}}</td>
+                        <td class="column-body">{{item.ssp}}</td>
+                        <td class="column-body">{{item.ymp}}</td>
+                        <td class="column-body">{{item.status}}</td>
+                        <td>
+                            <div>
+                                <a class="edit-button" href="javascript:void(0);" (click)=edit(item)>
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <polygon points="85.333,282.64 85.333,362.64 165.333,362.64 378.667,149.307 298.667,69.307 			"/>
+                                                    <path d="M441.707,56.08L391.893,6.267c-8.32-8.32-21.867-8.32-30.187,0L320,47.973l80,80l41.707-41.707
+                                                        C450.027,77.947,450.027,64.4,441.707,56.08z"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-config">
+            <label for="pageSize">Items per page:</label>
+            <div class="page-size">
+                <input type="number" name="pageSize" id="pageSize" placeholder="Seller Product Id" value={{dataValue}} (change)="changePageSize($event.target)">
+            </div>
+            <label for="pagination">{{pageStartvalue}}-{{pageStart+dataValue}} of {{totalRecords}}</label>
+            <div class="pagination ">
+                <button class="page-button" (click)="changePage( 'first') " [ngClass]="{'isDisabled':prevDissabled}">&#171;</button>
+                <button class="page-button " (click)="changePage( 'prev') " [ngClass]="{'isDisabled':prevDissabled}">&#8249;</button>
+                <button class="page-button " (click)="changePage( 'next') " [ngClass]="{'isDisabled':nextDissabled}">&#8250;</button>
+                <button class="page-button " (click)="changePage( 'last') " [ngClass]="{'isDisabled':nextDissabled}">&#187;</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="editForm">
+    <app-edit-form [product]="productData" [selerId]="seller" (formEvent)="closeForm()" (refresh)="updatePage()"></app-edit-form>
+</div>

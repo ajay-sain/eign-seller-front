@@ -1,0 +1,124 @@
+<div class="overlay">
+    <div class="page-wrapper font-robo">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading">
+                    <div class="slide-box">
+                        <div class="slide">
+                            <img src={{product.primaryUrl}} alt="" srcset="" (click)=showImage(product.primaryUrl)>
+                        </div>
+                        <div *ngFor="let url of product.galeryUrl" class="slide">
+                            <img src={{url}} alt="" srcset="" (click)=showImage(url)>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <img src={{displayImage}} alt="" srcset="">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="page-content">
+                        <h2 class="form-heading"> Product details</h2>
+                        <form #productUpdate action="" method="post" (submit)=uploadProduct(productUpdate)>
+                            <div class="box">
+                                <label for="sellerProductId">Seller Product Id</label>
+                                <div class="input-block">
+                                    <input type="text" name="sellerProductId" id="sellerProductId" placeholder="Seller Product Id" value={{product.sellerProductId}} (keypress)="validateField($event.target.value,0)">
+                                    <i class="fas fa-info-circle" [ngClass]="{'dissable':mapArr[0]}"></i>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label for="name">Product Name</label>
+                                <div class="input-block">
+                                    <input type="text" name="name" id="name" placeholder="Product Name" (keypress)="validateField($event.target.value,1)" value={{product.name}}>
+                                    <i class="fas fa-info-circle" [ngClass]="{'dissable':mapArr[1]}"></i>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label for="catagories">Catagories</label>
+                                <div class="input-block custom-dropdown">
+                                    <select class="select-input" name="catagories" id="catagories" (keypress)="validateField($event.target.value,3)" [(ngModel)]='product.catagories'>
+
+                                            <option *ngFor="let i of catagories" value={{i.value}}>{{i.label}}</option>
+                                        </select>
+                                    <i class="fas fa-info-circle" [ngClass]="{'dissable':mapArr[3]}"></i>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label for="mrp">MRP</label>
+                                <div class="input-block">
+                                    <input type="number" name="mrp" id="mrp" placeholder="MRP" (keypress)="validateField($event.target.value,4)" value={{product.mrp}}>
+                                    <i class="fas fa-info-circle" [ngClass]="{'dissable':mapArr[4]}"></i>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label for="ssp">Suggested Selling Price (SSP)</label>
+                                <div class="input-block">
+                                    <input type="number" name="ssp" id="ssp" placeholder="Suggested Selling Price" value={{product.ssp}}>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label for="ymp">YourMart Price (YMP).</label>
+                                <div class="input-block">
+                                    <input type="number" name="ymp" id="ymp" placeholder="YourMart Price (YMP)" (keypress)="validateField($event.target.value,5)" value={{product.ymp}}>
+                                    <i class="fas fa-info-circle" [ngClass]="{'dissable':mapArr[5]}"></i>
+                                </div>
+                            </div>
+                            <div class="box full-width">
+                                <label for="dimensions">Dimensions (in CM please)</label>
+                                <div class="input-block border-none">
+                                    <div class="input-block mini-input-block margin-left-0">
+                                        <input type="number" name="height" id="height" placeholder="Height" value={{product.height}}>
+                                    </div>
+                                    <div class="input-block mini-input-block">
+                                        <input type="number" name="width" id="width" placeholder="Width" value={{product.width}}>
+                                    </div>
+                                    <div class="input-block mini-input-block margin-right-0">
+                                        <input type="number" name="length" id="length" placeholder="Length" value={{product.length}}>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="box full-width">
+                                <label for="primaryImage">Primary Image</label>
+                                <div class="input-block full-width-98 ">
+                                    <input type="file" name="primaryImage" id="primaryImage" accept=".png,.jpg,.jpeg" (change)=uploadFile($event,0) (change)="validateField($event.target.value,6)" value={{product.primaryUrl}}>
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                            <div class="box full-width text-align-left">
+                                <label for="galleryImage">Gallery images- a set of product </label>
+                                <div class="input-block full-width-98h" #gallery>
+                                    <span><input type="file" name="galleryImage" id="galleryImage" class="button" accept=".png" (change)=uploadFile($event,1)></span>
+                                    <button (click)=addMoreImages(gallery) class="add-button"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box full-width">
+                                <label for="usageInstructions">Usage Instructions</label>
+                                <div class="input-block full-width-98 ">
+                                    <input type="file" name="usageInstructions" id="usageInstructions" accept=".pdf,.doc,.docx" (change)=uploadFile($event,-1) value={{product.userInstruction}}>
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div> -->
+                            <div class="box full-width">
+                                <label for="shortDescription">Short Description</label>
+                                <div class="input-block full-width-98">
+                                    <textarea name="shortDescription" id="shortDescription" placeholder="Short Description" class="textarea-block" (keypress)="validateField($event.target.value,2)" value={{product.shortDescription}}></textarea>
+                                    <i class="fas fa-info-circle" [ngClass]="{'dissable':mapArr[2]}"></i>
+                                </div>
+                            </div>
+                            <div class="box full-width">
+                                <label for="longDescription">Long Description</label>
+                                <div class="input-block full-width-98">
+                                    <textarea name="longDescription" id="longDescription" placeholder="Long Description" class="textarea-block" value={{product.longDescription}}></textarea>
+                                </div>
+                            </div>
+                            <div class="box full-width">
+                                <button type="submit" class="button submit" [disabled]=formModel>Update</button>
+                                <button (click)="dissableForm()" class="button">Cancle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
